@@ -48,8 +48,8 @@ This website serves as our digital hub — sharing who we are, our mission, upco
 
 ## Meet the Web Creator
 
-Made with love by [Ashley Ehler](https://www.linkedin.com/in/ashleyehler/) - Baylor Alum, Applied Mathematics and Economics and
-[Natalie Dume](https://www.linkedin.com/in/nataliedume/) — senior Data Science major, President of Women’s Network, and advocate for Gen Z excellence in leadership and tech
+Made with love by [Ashley Ehler](https://www.linkedin.com/in/ashleyehler/) - Baylor University Alum, Applied Mathematics and Economics and
+[Natalie Dume](https://www.linkedin.com/in/nataliedume/) — Baylor University senior Data Science major, President of Women’s Network, and advocate for Gen Z excellence in leadership and tech
 
 ---
 

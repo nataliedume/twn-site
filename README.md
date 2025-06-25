@@ -38,12 +38,6 @@ This website serves as our digital hub — sharing who we are, our mission, upco
 
 ---
 
-## Preview
-
-![Website Screenshot](assets/og-preview.jpg)
-
----
-
 ## Future Plans
 
 - Add event RSVP + calendar integration

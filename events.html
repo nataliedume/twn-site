@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Events | The Women’s Network at Baylor University</title>
+
+  <!-- Google Fonts: Poppins for header, Playfair + Inter for the rest -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Playfair+Display:ital,wght@0,600;1,400&family=Inter:wght@400;600&display=swap" 
+    rel="stylesheet"/>
+  <!-- Animate.css -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <style>
+    /* ─ RESET & BASE ─ */
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
+    html { font-family:'Inter',sans-serif; font-size:16px; scroll-behavior:smooth }
+    body { color:#333; line-height:1.6; background:#fff }
+    a { text-decoration:none; color:inherit }
+    ul { list-style:none }
+    .container { width:90%; max-width:1200px; margin:0 auto }
+
+    /* ─ HEADER & NAV ─ */
+    header {
+      background:#fff; padding:.75rem 0;
+      box-shadow:0 1px 6px rgba(0,0,0,0.05);
+      position:sticky; top:0; z-index:100;
+    }
+    .header-inner {
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand { display:flex; align-items:center; }
+    .brand .logo { height:32px; margin-right:.5rem; }
+    .brand-text {
+      font-family:'Poppins',sans-serif; font-weight:500;
+      font-size:1.5rem; color:#2d5c34;
+    }
+    .nav ul { display:flex; gap:2rem; }
+    .nav a {
+      font-family:'Poppins',sans-serif; font-weight:300;
+      font-size:1rem; color:#2d5c34; padding:.25rem .5rem;
+      border-radius:4px; transition:background .2s,color .2s;
+    }
+    .nav a:hover,
+    .nav a.active {
+      background:rgba(45,92,52,0.1); color:#1f3922;
+    }
+
+    /* ─ HERO BANNER ─ */
+    .events-hero {
+      position:relative;
+      background:url('assets/events-hero.jpg') center/cover no-repeat;
+      filter:brightness(0.75);
+      text-align:center;
+      padding:4rem 1rem;
+    }
+    .events-hero::after {
+      content:''; position:absolute; inset:0; background:rgba(0,0,0,0.3);
+    }
+    .events-hero .hero-content {
+      position:relative; z-index:1;
+      color:#fff; max-width:700px; margin:0 auto;
+      animation:fadeDown 0.8s ease-out both;
+    }
+    .events-hero h1 {
+      font-family:'Poppins',sans-serif;
+      font-size:2.5rem; margin-bottom:.5rem;
+    }
+    .events-hero p {
+      font-family:'Inter',sans-serif;
+      font-size:1.125rem; margin-bottom:0;
+    }
+
+    @keyframes fadeDown {
+      from { opacity:0; transform:translateY(-20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ─ INTRO ─ */
+    .intro {
+      text-align:center;
+      font-family:'Inter',sans-serif;
+      font-size:1rem;
+      max-width:700px;
+      margin:2rem auto;
+      color:#555;
+      opacity:0;
+      transform:translateY(20px);
+      transition:opacity .6s,transform .6s;
+    }
+
+    /* ─ SECTION HEADERS ─ */
+    .section { padding:3rem 0; }
+    section h2 {
+      font-family:'Poppins',sans-serif;
+      font-size:2rem; color:#2d5c34;
+      text-align:center; margin-bottom:1.5rem;
+      opacity:0; transform:translateY(20px);
+      transition:opacity .6s,transform .6s;
+    }
+
+    /* ─ CARD GRID ─ */
+    .cards {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1.5rem;
+    }
+    .card {
+      background:#faf9f5; border-radius:8px;
+      padding:1.5rem; box-shadow:0 2px 6px rgba(0,0,0,0.05);
+      transition:transform .2s,box-shadow .2s;
+      cursor:pointer;
+      opacity:0; transform:translateY(20px);
+    }
+    .card.visible { opacity:1; transform:translateY(0); }
+    .card:hover {
+      transform:translateY(-4px);
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      font-family:'Poppins',sans-serif; font-weight:600;
+      font-size:1.25rem; color:#2d5c34; margin-bottom:.5rem;
+    }
+    .card time {
+      display:block; font-family:'Poppins',sans-serif;
+      font-weight:500; color:#c5a973; margin-bottom:.75rem;
+    }
+    .card p {
+      font-family:'Poppins',sans-serif; font-size:1rem;
+      color:#444; line-height:1.5;
+    }
+
+    /* ─ MODAL ─ */
+    .modal {
+      display:none; position:fixed;
+      top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.6);
+      align-items:center; justify-content:center;
+      padding:1rem; z-index:200;
+    }
+    .modal.show { display:flex; }
+    .modal-content {
+      background:#fff; border-radius:8px;
+      max-width:600px; width:100%;
+      padding:1.5rem; position:relative;
+      max-height:90vh; overflow-y:auto;
+    }
+    .modal-close {
+      position:absolute; top:1rem; right:1rem;
+      font-size:1.5rem; cursor:pointer; color:#333;
+    }
+    .modal-content img {
+      width:100%; border-radius:4px; margin:1rem 0;
+    }
+
+    /* ─ FOOTER ─ */
+    footer {
+      background:#f9f9f9; text-align:center;
+      padding:2rem 0; font-size:.875rem; color:#777;
+    }
+    footer a { color:#2d5c34 }
+
+    /* ─ VISIBLE UTILITY ─ */
+    .visible { opacity:1 !important; transform:translateY(0) !important; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo-small.png" alt="TWN Logo" class="logo"/>
+        <span class="brand-text">TWN Baylor</span>
+      </a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="events.html" class="active">Events</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="events-hero">
+    <div class="hero-content">
+      <h1 class="animate__animated animate__fadeInDown">Events</h1>
+      <p class="animate__animated animate__fadeInDown animate__delay-1s">
+        Panels, resume workshops, speaker series & women-empowerment gatherings.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="section">
+    <div class="container">
+      <p class="intro">Our events include interactive panels with industry leaders, hands-on resume & cover-letter workshops, inspiring speaker series, and community-driven women’s empowerment meetups.</p>
+    </div>
+  </section>
+
+  <!-- UPCOMING EVENTS -->
+  <section id="upcoming" class="section">
+    <div class="container">
+      <h2>Upcoming Events</h2>
+      <div class="cards">
+        <div class="card event-card"
+             data-title="Focus & Flourish: Your Finals Study Haven"
+             data-datetime="May 8, 2025 @ 5:00 – 9:00 PM"
+             data-img="assets/events/may8_finalshaven.jpg"
+             data-desc="A quiet space to study for finals with snacks, coffee, and study materials available.">
+          <h3>Focus & Flourish</h3>
+          <time>May 8, 2025</time>
+          <p>Finals study haven with resources & peer support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST EVENTS -->
+  <section id="past" class="section">
+    <div class="container">
+      <h2>Past Events</h2>
+      <div class="cards">
+        <div class="card event-card" data-title="New Year, New Goals: TWN Kickoff" data-datetime="Jan 30, 2025 @ 5:30 – 6:30 PM" data-img="assets/events/jan30_kickoff.jpg" data-desc="Kick off spring with icebreakers, exec intros & Q&A to get you connected and energized.">
+          <h3>TWN Kickoff</h3>
+          <time>Jan 30, 2025</time>
+          <p>Semester kickoff & meet the executive team.</p>
+        </div>
+        <div class="card event-card" data-title="LinkedIn Glow-Up: Headshots & Networking" data-datetime="Feb 12, 2025 @ 2:00 – 5:00 PM" data-img="assets/events/feb12_headshots.jpg" data-desc="Get a professional LinkedIn headshot and network with fellow members.">
+          <h3>Headshots & Networking</h3>
+          <time>Feb 12, 2025</time>
+          <p>Pro headshots & live networking.</p>
+        </div>
+        <div class="card event-card" data-title="Polish & Impress: Career Day Prep" data-datetime="Feb 25, 2025 @ 6:00 – 7:00 PM" data-img="assets/events/feb25_careerprep.jpg" data-desc="Hands-on resume and elevator-pitch reviews with a professional career coach.">
+          <h3>Career Day Prep</h3>
+          <time>Feb 25, 2025</time>
+          <p>One-on-one resume & pitch coaching.</p>
+        </div>
+        <div class="card event-card" data-title="Interview Prep: Confidence & Charm" data-datetime="Mar 5, 2025 @ 5:30 – 7:00 PM" data-img="assets/events/mar5_interviewprep.jpg" data-desc="Practice mock interviews and get live feedback to boost your confidence.">
+          <h3>Interview Prep</h3>
+          <time>Mar 5, 2025</time>
+          <p>Mock interviews & expert tips.</p>
+        </div>
+        <div class="card event-card" data-title="Tech Meets Talent: Dell HQ Adventure" data-datetime="Mar 21, 2025 @ 11:00 AM – 3:30 PM" data-img="assets/events/mar21_dell.jpg" data-desc="Tour Dell’s corporate offices, lunch & panels with tech professionals.">
+          <h3>Dell HQ Tour</h3>
+          <time>Mar 21, 2025</time>
+          <p>Inside look at a leading tech firm.</p>
+        </div>
+        <div class="card event-card" data-title="Celebrate HER-story: Empowerment Circles" data-datetime="Mar 31, 2025 @ 5:00 – 6:00 PM" data-img="assets/events/mar31_empowerment.jpg" data-desc="Roundtable discussions celebrating Women’s History Month with campus orgs.">
+          <h3>HER-story Circles</h3>
+          <time>Mar 31, 2025</time>
+          <p>DEI roundtables & story-sharing.</p>
+        </div>
+        <div class="card event-card" data-title="Entrepreneurship: Female-Owned Businesses" data-datetime="Apr 10, 2025 @ 10:30 AM – 1:30 PM" data-img="assets/events/apr10_entrepreneur.jpg" data-desc="Showcase of women-owned startups with profit-share opportunities.">
+          <h3>Entrepreneurship Fair</h3>
+          <time>Apr 10, 2025</time>
+          <p>Support local female entrepreneurs.</p>
+        </div>
+        <div class="card event-card" data-title="First Job: Thriving & Surviving" data-datetime="Apr 24, 2025 @ 5:30 – 6:30 PM" data-img="assets/events/apr24_firstjob.jpg" data-desc="Tips & strategies for navigating your first professional role.">
+          <h3>First Job Tips</h3>
+          <time>Apr 24, 2025</time>
+          <p>Actionable survival strategies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div id="event-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-time" style="font-family:'Poppins',sans-serif;font-weight:500;color:#c5a973;"></p>
+      <img id="modal-img" src="" alt="" />
+      <p id="modal-desc" style="font-family:'Poppins',sans-serif;line-height:1.6;margin:1rem 0;"></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2025 The Women’s Network at Baylor University • 
+        <a href="https://instagram.com/thewomensnetwork_baylor" target="_blank">Instagram</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- FADE‐IN ON SCROLL & MODAL SCRIPTS -->
+  <script>
+    // fade‐in sections & cards
+    document.addEventListener('DOMContentLoaded',()=>{
+      const els = document.querySelectorAll('.intro, section h2, .card');
+      const obs = new IntersectionObserver((entries,io)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, {threshold:0.2});
+      els.forEach(el=> obs.observe(el));
+    });
+
+    // modal open/close
+    document.querySelectorAll('.event-card').forEach(card=>{
+      card.addEventListener('click',()=>{
+        const d = card.dataset;
+        document.getElementById('modal-title').textContent = d.title;
+        document.getElementById('modal-time').textContent  = d.datetime;
+        document.getElementById('modal-img').src         = d.img;
+        document.getElementById('modal-desc').textContent= d.desc;
+        document.getElementById('event-modal').classList.add('show');
+      });
+    });
+    document.querySelector('.modal-close').onclick = ()=>
+      document.getElementById('event-modal').classList.remove('show');
+    document.getElementById('event-modal').onclick = e=>{
+      if(e.target===e.currentTarget)
+        e.currentTarget.classList.remove('show');
+    };
+  </script>
+</body>
+</html>

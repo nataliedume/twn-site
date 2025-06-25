@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>About — The Women’s Network at Baylor University</title>
+
+  <!-- Google Fonts: Poppins for header, Playfair + Inter for the rest -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Playfair+Display:ital,wght@0,600;1,400&family=Inter:wght@400;600&display=swap" 
+    rel="stylesheet"/>
+  <!-- Animate.css -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <style>
+    /* ─ RESET & BASE ─ */
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html { font-family:'Inter',sans-serif; font-size:16px; scroll-behavior:smooth; }
+    body { color:#333; line-height:1.6; }
+    a { text-decoration:none; color:inherit; }
+    ul { list-style:none; }
+    .container { width:90%; max-width:1200px; margin:0 auto; }
+
+    /* ─ HEADER & NAV ─ */
+    header {
+      background:#fff;
+      padding:.75rem 0;
+      box-shadow:0 1px 6px rgba(0,0,0,0.05);
+      position:sticky; top:0; z-index:100;
+    }
+    .header-inner {
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand {
+      display:flex; align-items:center;
+    }
+    .brand .logo {
+      height:32px; margin-right:.5rem;
+    }
+    .brand-text {
+      font-family:'Poppins',sans-serif; font-weight:500; font-size:1.5rem; color:#2d5c34;
+    }
+    .nav ul {
+      display:flex; gap:2rem;
+    }
+    .nav a {
+      font-family:'Poppins',sans-serif; font-weight:300; font-size:1rem;
+      color:#2d5c34; padding:.25rem .5rem; border-radius:4px;
+      transition:background .2s,color .2s;
+    }
+    .nav a:hover {
+      background:rgba(45,92,52,0.1); color:#1f3922;
+    }
+
+    /* ─ HERO (same as index) ─ */
+    .hero {
+      position: relative;
+      height: 60vh;
+      background: url('assets/hero-about.jpg') center/cover no-repeat;
+      filter: brightness(0.7);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; inset:0;
+      background: rgba(0,0,0,0.3);
+    }
+    .hero-content {
+      position: relative; z-index:1;
+      margin: 0 0 3rem 3rem;
+      max-width: 700px;
+      text-align: left; color:#fff;
+      animation: fadeDown 0.8s ease-out both;
+    }
+    .hero-content h1 {
+      font-family: 'Poppins', sans-serif; font-size:2.15rem; line-height:1.2; margin-bottom:1rem;
+    }
+    .hero-content p {
+      font-family:'Inter',sans-serif; font-size:1rem; margin-bottom:1rem;
+    }
+    .hero-content .btn {
+      font-family:'Inter',sans-serif; font-size:.875rem;
+      padding:.5rem 1rem; border-radius:4px;
+      background:#fff; color:#2d5c34;
+      display:inline-block; font-weight:600;
+      transition:transform .3s;
+    }
+    .hero-content .btn:hover { transform:translateY(-3px); }
+
+    @keyframes fadeDown {
+      from { opacity:0; transform:translateY(-20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    /* ── CORE PILLARS ── */
+.pillars-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  margin-top: 2rem;
+}
+.pillar {
+  background: #faf9f5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform .3s, box-shadow .3s;
+}
+.pillar:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.pillar h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #2d5c34;
+  margin-bottom: .75rem;
+}
+.pillar p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ── FOUNDER SPOTLIGHT ── */
+.founder-grid {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+.founder-img img {
+  width: 220px;
+  max-width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.founder-info h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.75rem;
+  color: #2d5c34;
+  margin-bottom: .5rem;
+}
+.founder-info h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.founder-info p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+/* ── Animate.css Delays ── */
+.animate__delay-1s { animation-delay: 0.4s; }
+.animate__delay-2s { animation-delay: 0.8s; }
+
+    /* ─ SECTIONS ─ */
+    .section { padding:6rem 0; }
+    .section h2 {
+      font-family:'Inter',sans-serif; font-size:2rem;
+      text-align:center; margin-bottom:1.5rem; color:#2d5c34;
+    }
+
+    /* ── ABOUT COPY & MISSION ── */
+    .about-copy {
+      font-family:'Inter',sans-serif; font-size:1rem;
+      max-width:720px; margin:0.5rem auto 1.5rem;
+      line-height:1.75; color:#444; text-align:center;
+    }
+    .mission {
+      font-family:'Inter',sans-serif; font-size:.95rem;
+      max-width:640px; margin:0 auto; line-height:1.6; color:#555;
+      text-align:center;
+    }
+    .mission strong {
+      display:block;
+      font-family:'Poppins',sans-serif;
+      font-size:1.25rem; color:#2d5c34; margin-bottom:.5rem;
+    }
+
+    /* ─ SCROLL FADE-IN ─ */
+    .fade-in { opacity:0; transform:translateY(20px); transition:opacity .6s,transform .6s; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo-small.png" alt="TWN Logo" class="logo"/>
+        <span class="brand-text">TWN Baylor</span>
+      </a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>About The Women’s Network</h1>
+      <p>Understand our mission, our story, and how we uplift women nationwide.</p>
+    </div>
+  </section>
+
+  <main>
+    <!-- WHO WE ARE -->
+    <section id="about" class="section fade-in">
+      <h2>Our Mission</h2>
+      <p class="about-copy">
+        The mission of The Women’s Network at Baylor is to equip women with the resources, support, and confidence they need to successfully transition from college to career. Through workshops on résumé writing, LinkedIn building, and professional development, we aim to help members feel prepared and empowered for life after graduation. No matter their major or career goals, TWN connects students with industry leaders across fields—fostering mentorship, opportunity, and a strong community of ambitious women.
+      </p>
+    
+    </section>
+  </main>
+
+    <!-- ── CORE PILLARS ── -->
+    <section id="pillars" class="section fade-in">
+      <div class="container">
+        <h2>Our Core Pillars</h2>
+        <div class="pillars-grid">
+          <div class="pillar animate__animated animate__fadeInUp">
+            <h3>Leadership</h3>
+            <p>We cultivate confidence and equip women with the skills and mindset to lead with purpose—both on campus and beyond.</p>
+          </div>
+          <div class="pillar animate__animated animate__fadeInUp animate__delay-1s">
+            <h3>Networking</h3>
+            <p>We build bridges between students, recent grads, and seasoned professionals—opening doors, sparking collaborations, and forging lifelong friendships.</p>
+          </div>
+          <div class="pillar animate__animated animate__fadeInUp animate__delay-2s">
+            <h3>Growth</h3>
+            <p>We champion personal and professional development—through workshops, mentorship, and resources that help each member thrive.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- ── FOUNDER SPOTLIGHT ── -->
+    <section id="founder" class="section fade-in">
+      <div class="container founder-grid">
+        <div class="founder-img animate__animated animate__fadeInLeft">
+          <img src="assets/team/ashley.jpg" alt="Ashley Ehler, Founder"/>
+        </div>
+        <div class="founder-info animate__animated animate__fadeInRight">
+          <h2>Founder at Baylor University</h2>
+          <h3>Ashley Ehler</h3>
+          <p> Ashley Ehler founded the Baylor University chapter of The Women’s Network to create a space where driven, ambitious women could connect, grow, and feel empowered in both their personal and professional lives. With a passion for leadership and building community, she launched the chapter from the ground up—spearheading recruitment, organizing impactful events, and setting the foundation for a supportive network that will thrive for years to come.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NATIONAL NETWORK CALLOUT SECTION -->
+<section class="national-network section fade-in" style="background:#f5f7f6; padding:6rem 1rem;">
+  <div class="container" style="max-width:1000px; margin:0 auto; text-align:center;">
+    <h2 style="font-family: 'Poppins', sans-serif; color:#2d5c34; font-size:2.25rem; margin-bottom:1.5rem;">
+      Part of a National Movement
+    </h2>
+    <p style="font-family: 'Inter', sans-serif; font-size:1rem; color:#555; max-width:700px; margin:0 auto 2.5rem;">
+      The Women’s Network spans over <strong>120+ collegiate campuses</strong> across the country with <strong>50,000+ members</strong> and growing.
+      By joining the Baylor chapter, you’re gaining access to a powerful national sisterhood of ambitious, driven, and supportive women.
+    </p>
+    <img src="assets/map-twn-network.png" alt="TWN National Map" style="width:100%; max-width:600px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05);"/>
+    <p style="margin-top:1rem; font-size:0.9rem; color:#777;">Image: TWN’s campus presence nationwide</p>
+  <!-- Add this below the image -->
+  <p>
+    <a href="https://www.thewomens.network/" target="_blank" style="color:#2d5c34; font-weight:600; text-decoration:underline;">
+      Visit The Women's Network National Site →
+    </a>
+  </p>
+  </div>
+</section>
+  
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container" style="text-align:center; padding:2rem 0; font-size:.875rem; background:#f9f9f9;">
+      © 2025 The Women’s Network at Baylor University • 
+      <a href="https://instagram.com/thewomensnetwork_baylor" target="_blank">Instagram</a>
+    </div>
+  </footer>
+
+  <!-- FADE-IN SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      document.querySelectorAll('.fade-in').forEach(el=>{
+        const obs=new IntersectionObserver(entries=>{
+          if(entries[0].isIntersecting){
+            el.classList.add('visible');
+            obs.unobserve(el);
+          }
+        },{threshold:0.2});
+        obs.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

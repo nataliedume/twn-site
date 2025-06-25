@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Our Leadership Team — TWN Baylor</title>
+
+  <!-- Google Fonts -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Playfair+Display:ital,wght@0,600;1,400&family=Inter:wght@400;600&display=swap" 
+    rel="stylesheet"/>
+  <!-- Animate.css for easy fade-in if you like -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    /* ─ RESET & BASE ─ */
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
+    html { font-family:'Inter',sans-serif; font-size:16px; scroll-behavior:smooth }
+    body { color:#333; line-height:1.6 }
+    a { text-decoration:none; color:inherit }
+    ul { list-style:none }
+    .container { width:90%; max-width:1200px; margin:0 auto }
+
+    /* ─ HEADER & NAV ─ */
+    header {
+      background:#fff;
+      padding:.75rem 0;
+      box-shadow:0 1px 6px rgba(0,0,0,0.05);
+      position:sticky; top:0; z-index:100;
+    }
+    .header-inner {
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand {
+      display:flex; align-items:center;
+    }
+    .brand .logo {
+      height:32px; margin-right:.5rem;
+    }
+    .brand-text {
+      font-family:'Poppins',sans-serif; font-weight:500;
+      font-size:1.5rem; color:#2d5c34;
+    }
+    .nav ul {
+      display:flex; gap:2rem;
+    }
+    .nav a {
+      font-family:'Poppins',sans-serif; font-weight:300; font-size:1rem;
+      color:#2d5c34; padding:.25rem .5rem; border-radius:4px;
+      transition:background .2s,color .2s;
+    }
+    .nav a:hover {
+      background:rgba(45,92,52,0.1); color:#1f3922;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position:relative; height:60vh;
+      background:url('assets/hero-team.jpg') center/cover no-repeat;
+      filter: brightness(0.7);
+      display:flex; align-items:flex-end; justify-content:flex-start;
+    }
+    .hero::after {
+      content:''; position:absolute; inset:0;
+      background:rgba(0,0,0,0.3);
+    }
+    .hero-content {
+      position:relative; z-index:1;
+      margin:0 0 3rem 3rem; max-width:700px; text-align:left;
+      color:#fff; animation:fadeDown .8s ease-out both;
+    }
+    .hero-content h1 {
+      font-family:'Poppins',sans-serif; font-size:2.15rem;
+      line-height:1.2; margin-bottom:1rem;
+    }
+    .hero-content p {
+      font-family:'Inter',sans-serif; font-size:1rem;
+      margin-bottom:1rem;
+    }
+    .hero-content .btn {
+      font-family:'Inter',sans-serif; font-size:.875rem;
+      display:inline-block; font-weight:600;
+      padding:.5rem 1rem; border-radius:4px;
+      background:#fff; color:#2d5c34;
+      transition:transform .3s;
+    }
+    .hero-content .btn:hover {
+      transform:translateY(-3px);
+    }
+    @keyframes fadeDown {
+      from { opacity:0; transform:translateY(-20px) }
+      to   { opacity:1; transform:translateY(0) }
+    }
+
+    /* ─ TEAM GRID & FLIP CARDS ─ */
+    .team-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:2rem;
+      padding:4rem 0;
+      justify-items:center;
+    }
+    .flip-card {
+      width:200px; height:200px;
+      perspective:1000px;
+      cursor:pointer;
+    }
+    .flip-card-inner {
+      position:relative;
+      width:100%; height:100%;
+      transform-style:preserve-3d;
+      transition:transform .6s;
+    }
+    .flip-card.flipped .flip-card-inner {
+      transform:rotateY(180deg);
+    }
+    .flip-card-front,
+    .flip-card-back {
+      position:absolute; width:100%; height:100%;
+      backface-visibility:hidden;
+      border-radius:8px; overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    }
+    .flip-card-front img {
+      width:100%; height:100%; object-fit:cover; display:block;
+    }
+    .flip-card-back {
+      background:#fafafa; transform:rotateY(180deg);
+      display:flex; flex-direction:column; justify-content:center;
+      align-items:center; padding:1rem;
+    }
+    .flip-card-back h3 {
+      font-family:'Playfair Display',serif; color:#2d5c34;
+      margin-bottom:.5rem; font-size:1.1rem; text-align:center;
+    }
+    .flip-card-back p {
+      font-family:'Inter',sans-serif; color:#555; text-align:center;
+      font-size:.9rem; line-height:1.4;
+    }
+
+    /* ─ FOOTER ─ */
+    footer {
+      background:#f9f9f9; text-align:center;
+      padding:2rem 0; font-size:.875rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo-small.png" alt="TWN Logo" class="logo"/>
+        <span class="brand-text">TWN Baylor</span>
+      </a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Meet Our Leadership Team</h1>
+      <p>These 13 women make everything happen—click on their photos to learn their position!</p>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="container">
+    <section id="team">
+      <div class="team-grid">
+        <!-- 1) President -->
+        <div class="flip-card" tabindex="0"
+             onclick="this.classList.toggle('flipped')"
+             onkeypress="if(event.key==='Enter'||event.key===' ') this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/team/ashley.jpg" alt="Ashley Ehler — President"/>
+            </div>
+            <div class="flip-card-back">
+              <h3>Ashley Ehler</h3>
+              <p>President</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2) Vice President -->
+        <div class="flip-card" tabindex="0"
+             onclick="this.classList.toggle('flipped')"
+             onkeypress="if(event.key==='Enter'||event.key===' ') this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/team/isabella.jpg" alt="Isabella Tole — Vice President"/>
+            </div>
+            <div class="flip-card-back">
+              <h3>Isabella Tole</h3>
+              <p>Vice President</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3) VP of Marketing -->
+        <div class="flip-card" tabindex="0"
+             onclick="this.classList.toggle('flipped')"
+             onkeypress="if(event.key==='Enter'||event.key===' ') this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/team/maci.jpg" alt="Maci Burnett — VP of Marketing"/>
+            </div>
+            <div class="flip-card-back">
+              <h3>Maci Burnett</h3>
+              <p>VP of Marketing</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4) VP of Events -->
+        <div class="flip-card" tabindex="0"
+             onclick="this.classList.toggle('flipped')"
+             onkeypress="if(event.key==='Enter'||event.key===' ') this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/team/sophia.jpg" alt="Sophia Whetstone — VP of Events"/>
+            </div>
+            <div class="flip-card-back">
+              <h3>Sophia Whetstone</h3>
+              <p>VP of Events</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5) VP of Finance -->
+        <div class="flip-card" tabindex="0"
+             onclick="this.classList.toggle('flipped')"
+             onkeypress="if(event.key==='Enter'||event.key===' ') this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/team/meredith.jpg" alt="Meredith Brosig — VP of Finance"/>
+            </div>
+            <div class="flip-card-back">
+              <h3>Meredith Brosig</h3>
+              <p>VP of Finance</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6) Trip Coordinator -->
+        <div class="flip-card" tabindex="0"
+             onclick="this.classList.toggle('flipped')"
+             onkeypress="if(event.key==='Enter'||event.key===' ') this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/team/natalie.jpg" alt="Natalie Dume — Trip Coordinator"/>
+            </div>
+            <div class="flip-card-back">
+              <h3>Natalie Dume</h3>
+              <p>Trip Coordinator</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7) Lead Ambassador -->
+        <div class="flip-card" tabindex="0"
+             onclick="this.classList.toggle('flipped')"
+             onkeypress="if(event.key==='Enter'||event.key===' ') this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/team/cassie.jpg" alt="Cassie Dume — Lead Ambassador"/>
+            </div>
+            <div class="flip-card-back">
+              <h3>Cassie Dume</h3>
+              <p>Lead Ambassador</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8) Social Media -->
+        <div class="flip-card" tabindex="0"
+             onclick="this.classList.toggle('flipped')"
+             onkeypress="if(event.key==='Enter'||event.key===' ') this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/team/isabel.jpg" alt="Isabel Joudeh — Social Media"/>
+            </div>
+            <div class="flip-card-back">
+              <h3>Isabel Joudeh</h3>
+              <p>Social Media</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9) Merch Chair -->
+        <div class="flip-card" tabindex="0"
+             onclick="this.classList.toggle('flipped')"
+             onkeypress="if(event.key==='Enter'||event.key===' ') this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/team/khalila.jpg" alt="Khalila Gonzales — Merch Chair"/>
+            </div>
+            <div class="flip-card-back">
+              <h3>Khalila Gonzales</h3>
+              <p>Merch Chair</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10) Print Marketing -->
+        <div class="flip-card" tabindex="0"
+             onclick="this.classList.toggle('flipped')"
+             onkeypress="if(event.key==='Enter'||event.key===' ') this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/team/sarah.jpg" alt="Sarah Stein — Print Marketing"/>
+            </div>
+            <div class="flip-card-back">
+              <h3>Sarah Stein</h3>
+              <p>Print Marketing</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11) Print Marketing -->
+        <div class="flip-card" tabindex="0"
+             onclick="this.classList.toggle('flipped')"
+             onkeypress="if(event.key==='Enter'||event.key===' ') this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/team/molly.jpg" alt="Molly Edwards — Print Marketing"/>
+            </div>
+            <div class="flip-card-back">
+              <h3>Molly Edwards</h3>
+              <p>Print Marketing</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12) Community Outreach -->
+        <div class="flip-card" tabindex="0"
+             onclick="this.classList.toggle('flipped')"
+             onkeypress="if(event.key==='Enter'||event.key===' ') this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/team/michaela.jpg" alt="Michaela Kallon — Community Outreach"/>
+            </div>
+            <div class="flip-card-back">
+              <h3>Michaela Kallon</h3>
+              <p>Community Outreach</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13) Newsletter Writer -->
+        <div class="flip-card" tabindex="0"
+             onclick="this.classList.toggle('flipped')"
+             onkeypress="if(event.key==='Enter'||event.key===' ') this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/team/elizabeth.jpg" alt="Elizabeth Johnson — Newsletter Writer"/>
+            </div>
+            <div class="flip-card-back">
+              <h3>Elizabeth Johnson</h3>
+              <p>Newsletter Writer</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 The Women’s Network at Baylor University • 
+      <a href="https://instagram.com/thewomensnetwork_baylor" target="_blank">Instagram</a>
+    </p>
+  </footer>
+
+  <!-- JS to toggle flip -->
+  <script>
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', () => card.classList.toggle('flipped'));
+      card.addEventListener('keypress', e => {
+        if (e.key==='Enter' || e.key===' ') card.classList.toggle('flipped');
+      });
+    });
+  </script>
+  <script>
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+      card.addEventListener('keypress', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          card.classList.toggle('flipped');
+        }
+      });
+    });
+  </script>
+  
+</body>
+</html>

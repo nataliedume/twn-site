@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join Us – The Women’s Network at Baylor University</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Playfair+Display:ital,wght@0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body { font-family: 'Inter', sans-serif; line-height: 1.6; margin: 0; color: #333; }
+    header { background: #fff; padding: .75rem 0; box-shadow: 0 1px 6px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; width: 90%; max-width: 1200px; margin: 0 auto; }
+    .brand { display: flex; align-items: center; }
+    .brand .logo { height: 32px; margin-right: .5rem; }
+    .brand-text { font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 1.5rem; color: #2d5c34; }
+    nav ul { display: flex; gap: 2rem; list-style: none; padding: 0; margin: 0; }
+    nav a { font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 1rem; color: #2d5c34; text-decoration: none; padding: .25rem .5rem; border-radius: 4px; transition: background .2s, color .2s; }
+    nav a:hover { background: rgba(45, 92, 52, 0.1); color: #1f3922; }
+
+    .fade-in { opacity: 0; transform: translateY(25px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* WHY JOIN */
+    #why-join { background: #ffffff; padding: 6rem 1rem; }
+    #why-join h2 { text-align: center; font-family: 'Poppins', sans-serif; font-size: 2.25rem; color: #2d5c34; margin-bottom: 2rem; }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2.5rem; max-width: 1000px; margin: 0 auto; }
+    .why-card { background: #fafaf9; border-radius: 12px; padding: 2rem 1rem; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+    .why-card:hover { transform: translateY(-6px); box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+    .why-card svg { width: 50px; height: 50px; stroke: #2d5c34; fill: none; stroke-width: 3; margin-bottom: 0.75rem; }
+    .why-card h3 { font-family: 'Poppins', sans-serif; color: #2d5c34; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .why-card p { font-family: 'Inter', sans-serif; color: #555; font-size: 0.9rem; line-height: 1.4; max-height: 0; opacity: 0; transition: max-height 0.4s ease, opacity 0.4s ease; margin: 0; }
+    .why-card.active p { max-height: 150px; opacity: 1; margin-top: 0.5rem; }
+
+    /* MEMBERSHIP REQUIREMENTS */
+    #membership-req { background: #f5f7f6; padding: 6rem 1rem; }
+    #membership-req .container { display: flex; flex-wrap: wrap; align-items: center; gap: 3rem; max-width: 1000px; margin: 0 auto; }
+    #membership-req img { width: 100%; max-width: 450px; border-radius: 12px; object-fit: cover; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+    #membership-req .text { flex: 1; padding: 1rem; }
+    #membership-req h2 { font-family: 'Poppins', sans-serif; font-size: 2rem; color: #2d5c34; margin-bottom: 1rem; }
+    #membership-req p { font-family: 'Inter', sans-serif; color: #555; font-size: 1.05rem; line-height: 1.6; }
+    #join-slider {
+  padding: 5rem 1rem;
+  background: #fff;
+}
+
+.slider-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+}
+
+.slide-text {
+  background: rgba(0,0,0,0.4);
+  padding: 2rem;
+  width: 100%;
+}
+
+.slide-text h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.slide-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+}
+
+/* Arrows */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.25rem 0.75rem;
+  z-index: 10;
+  color: #2d5c34;
+  border-radius: 4px;
+}
+.slider-btn:hover {
+  background: #fff;
+}
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
+
+    /* CTA */
+    #join-cta { background: #2d5c34; color: #fff; padding: 6rem 1rem; text-align: center; }
+    #join-cta h2 { font-family: 'Poppins', sans-serif; font-size: 2.25rem; margin-bottom: 1.5rem; }
+    #join-cta .btn { background: #c5a973; color: #2d5c34; padding: 0.85rem 2rem; border-radius: 6px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: background 0.3s ease; }
+    #join-cta .btn:hover { background: #b0955e; }
+
+    /* FOOTER */
+    footer { background: #f9f9f9; text-align: center; padding: 2rem 0; font-size: .875rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo-small.png" alt="TWN Logo" class="logo"/>
+        <span class="brand-text">TWN Baylor</span>
+      </a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="join.html" class="active">Join</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<!-- WHY JOIN -->
+<section id="why-join" class="fade-in">
+  <div class="container">
+    <h2>Why Join The Women’s Network?</h2>
+    <div class="why-grid">
+      <!-- Grow Network -->
+      <div class="why-card" data-text="Expand your professional & personal networks">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#2d5c34" stroke-width="2.5">
+          <circle cx="32" cy="12" r="5" />
+          <circle cx="12" cy="52" r="5" />
+          <circle cx="52" cy="52" r="5" />
+          <line x1="32" y1="17" x2="12" y2="47" />
+          <line x1="32" y1="17" x2="52" y2="47" />
+        </svg>
+        <h3>Grow Network</h3>
+        <p></p>
+      </div>
+
+      <!-- Build Skills -->
+      <div class="why-card" data-text="Enhance your soft skills & networking confidence">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#2d5c34" stroke-width="2.5">
+          <path d="M32 4v56M16 20h32M16 32h32M16 44h32" />
+        </svg>
+        <h3>Build Skills</h3>
+        <p></p>
+      </div>
+
+      <!-- Be a Leader -->
+      <div class="why-card" data-text="Gain leadership experience & confidence">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#2d5c34" stroke-width="2.5">
+          <polygon points="32,8 40,28 56,28 44,40 48,56 32,48 16,56 20,40 8,28 24,28" />
+        </svg>
+        <h3>Be a Leader</h3>
+        <p></p>
+      </div>
+
+      <!-- True Community -->
+      <div class="why-card" data-text="Foster genuine connections with peers & professionals">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#2d5c34" stroke-width="2.5">
+          <circle cx="20" cy="24" r="6" />
+          <circle cx="44" cy="24" r="6" />
+          <path d="M20 30c8 8 16 8 24 0" />
+        </svg>
+        <h3>True Community</h3>
+        <p></p>
+      </div>
+
+      <!-- Career Tools -->
+      <div class="why-card" data-text="Access exclusive career resources & workshops">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#2d5c34" stroke-width="2.5">
+          <rect x="10" y="18" width="44" height="28" rx="4" />
+          <line x1="10" y1="28" x2="54" y2="28" />
+          <circle cx="20" cy="36" r="2" />
+          <circle cx="28" cy="36" r="2" />
+          <circle cx="36" cy="36" r="2" />
+          <circle cx="44" cy="36" r="2" />
+        </svg>
+        <h3>Career Tools</h3>
+        <p></p>
+      </div>
+
+      <!-- Mentorship -->
+      <div class="why-card" data-text="Receive mentorship from experienced professionals">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#2d5c34" stroke-width="2.5">
+          <circle cx="24" cy="24" r="5" />
+          <circle cx="40" cy="24" r="5" />
+          <path d="M20 50c4-4 12-4 16 0" />
+          <path d="M32 29v10" />
+          <path d="M26 50v-6h12v6" />
+        </svg>
+        <h3>Mentorship</h3>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="membership-req" class="fade-in">
+    <div class="container">
+      <img src="assets/join/group-photo.jpg" alt="Members gathering" />
+      <div class="text">
+        <h2>The Best Part: No Dues!</h2>
+        <p>Just stay active—attend at least <strong>50% of our events</strong> each semester to maintain your membership. Beyond that, TWN is your platform to grow, learn, and connect in a supportive sisterhood.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDER SECTION -->
+<section id="join-slider" class="fade-in">
+  <div class="slider-wrapper">
+    <div class="slider-track">
+      <!-- Slide 1 -->
+      <div class="slide" style="background-image: url('assets/slider/global-network.jpg')">
+        <div class="slide-text">
+          <h3>Global Network Access</h3>
+          <p>Connect with over 40,000+ women across 100+ campuses and industries.</p>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="slide" style="background-image: url('assets/slider/personal-growth.jpg')">
+        <div class="slide-text">
+          <h3>Personal Growth</h3>
+          <p>Challenge yourself with experiences that shape your confidence and voice.</p>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="slide" style="background-image: url('assets/slider/friendship.jpg')">
+        <div class="slide-text">
+          <h3>Friendship & Fun</h3>
+          <p>Beyond careers, build lifelong friendships and celebrate each other’s wins.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrows -->
+    <button class="slider-btn prev">&#10094;</button>
+    <button class="slider-btn next">&#10095;</button>
+  </div>
+</section>
+
+
+  <section id="join-cta" class="fade-in">
+    <div class="container">
+      <h2>Click here to sign up to be apart of TWN!</h2>
+      <a href="https://www.thewomens.network/jointwn" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 The Women’s Network at Baylor University •
+      <a href="mailto:thewomensnetwork_baylor@gmail.com">Email Us</a> •
+      <a href="https://instagram.com/thewomensnetwork_baylor" target="_blank">Instagram</a>
+    </p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const obs = new IntersectionObserver(entries => {
+          if (entries[0].isIntersecting) {
+            el.classList.add('visible');
+            obs.unobserve(el);
+          }
+        }, { threshold: 0.2 });
+        obs.observe(el);
+      });
+      document.querySelectorAll('.why-card').forEach(card => {
+        card.querySelector('p').textContent = card.dataset.text;
+        card.addEventListener('click', () => card.classList.toggle('active'));
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.querySelector('.slider-track');
+      const slides = document.querySelectorAll('.slide');
+      const prevBtn = document.querySelector('.slider-btn.prev');
+      const nextBtn = document.querySelector('.slider-btn.next');
+  
+      let currentSlide = 0;
+  
+      function updateSlider() {
+        const offset = -currentSlide * 100;
+        track.style.transform = `translateX(${offset}%)`;
+      }
+  
+      nextBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlider();
+      });
+  
+      prevBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlider();
+      });
+    });
+  </script>
+  
+</body>
+</html>

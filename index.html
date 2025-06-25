@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>The Women’s Network at Baylor University</title>
+
+  <!-- Google Fonts: Poppins for header, Playfair + Inter for the rest -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Playfair+Display:ital,wght@0,600;1,400&family=Inter:wght@400;600&display=swap" 
+    rel="stylesheet"/>
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+
+
+  <style>
+    /* ─ RESET & BASE ─ */
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html { font-family:'Inter',sans-serif; font-size:16px; scroll-behavior:smooth; }
+    body { color:#333; line-height:1.6; }
+    a { text-decoration:none; color:inherit; }
+    ul { list-style:none; }
+    .container { width:90%; max-width:1200px; margin:0 auto; }
+
+    /* ─ HEADER & NAV ─ */
+    header {
+      background:#fff;
+      padding:.75rem 0;
+      box-shadow:0 1px 6px rgba(0,0,0,0.05);
+      position:sticky; top:0; z-index:100;
+    }
+    .header-inner {
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand {
+      display:flex; align-items:center;
+    }
+    .brand .logo {
+      height:32px; margin-right:.5rem;
+    }
+    .brand-text {
+      font-family:'Poppins',sans-serif; font-weight:500; font-size:1.5rem; color:#2d5c34;
+    }
+    .nav ul {
+      display:flex; gap:2rem;
+    }
+    .nav a {
+      font-family:'Poppins',sans-serif; font-weight:300; font-size:1rem;
+      color:#2d5c34; padding:.25rem .5rem; border-radius:4px;
+      transition:background .2s,color .2s;
+    }
+    .nav a:hover {
+      background:rgba(45,92,52,0.1); color:#1f3922;
+    }
+
+    /* ── HERO UPDATES ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('assets/hero-bg.jpg') center/cover no-repeat;
+      filter: brightness(0.7);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 3rem 3rem;
+      max-width: 700px;
+      text-align: left;
+      color: #fff;
+      animation: fadeDown 0.8s ease-out both;
+    }
+    .hero-content h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3rem;
+      line-height: 1.2;
+      margin-bottom: 1.0rem;
+    }
+    .hero-content p {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-content .btn {
+      font-family: 'Inter', sans-serif;
+      display: inline-block;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      background: #fff;
+      color: #2d5c34;
+      transition: transform 0.3s;
+    }
+    .hero-content .btn:hover {
+      transform: translateY(-3px);
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0);     }
+    }
+
+    /* ── Tweak Hero Text & Button Sizes ── */
+.hero-content h1 {
+  font-size: 2.15rem;    /* was 3rem */
+}
+.hero-content p {
+  font-size: 1rem;       /* was 1.125rem */
+  margin-bottom: 1rem;   /* tighten the spacing */
+}
+.hero-content .btn {
+  font-size: 0.875rem;   /* make label a bit smaller */
+  padding: 0.5rem 1rem;  /* slim down the button */
+}
+
+  /* ─ SECTIONS ─ */
+  .section { padding:6rem 0; }
+    .section h2 {
+      font-family: 'Inter', sans-serif;
+      font-size:2rem;
+      text-align:center; margin-bottom:1.5rem; color:#2d5c34;
+    }
+    /* ─── WHO WE ARE COPY ─── */
+.about-copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  max-width: 720px;
+  margin: 0.5rem auto 1.5rem;
+  line-height: 1.75;
+  color: #444;
+}
+
+.mission {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #555;
+}
+
+.mission strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: #2d5c34;
+  margin-bottom: 0.5rem;
+}
+  
+
+ /* ─── Animated Quote Section with Lines Only ─── */
+section.quote-animated {
+  position: relative;
+  padding: 6rem 0;
+  background: #eff1ec; /* pale green */
+  overflow: hidden;
+}
+
+/* top line expands left→right */
+section.quote-animated::before {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: #2d5c34;
+  animation: expandLineLTR 0.8s ease-out forwards 0.2s;
+}
+
+/* bottom line expands right→left */
+section.quote-animated::after {
+  content: "";
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #2d5c34;
+  animation: expandLineRTL 0.8s ease-out forwards 0.2s;
+}
+
+.quote-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Quote text */
+.quote-text {
+  font-family: 'Poppins', serif;
+  font-size: 1.75rem;
+  color: #2d5c34;
+  line-height: 1.4;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards 1.0s;
+  margin-bottom: 1rem;
+}
+
+/* Author line */
+.quote-author {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards 1.2s;
+}
+
+/* ─── Animations ─── */
+@keyframes expandLineLTR {
+  to { width: 100%; }
+}
+@keyframes expandLineRTL {
+  to { width: 100%; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+    /* ─── Alternating Animated Timeline ─── */
+/* ────────────────────────────── */
+/*   ALTERNATING CENTERED TIMELINE  */
+/* ────────────────────────────── */
+
+.history .timeline {
+  position: relative;
+  margin: 4rem 0;
+  padding: 0;
+}
+
+/* the vertical spine */
+.history .timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #c5a973;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.history .timeline-item {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  z-index: 1;
+}
+
+/* dot on the spine */
+.history .timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: #2d5c34;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+/* shared text styles */
+.history .timeline-item time {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: #2d5c34;
+  margin-bottom: 0.5rem;
+}
+.history .timeline-item h3 {
+  margin: 0 0 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  color: #2d5c34;
+}
+.history .timeline-item p {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #555;
+  line-height: 1.5;
+  max-width: 45%;
+}
+
+/* ─── TIGHTER, CENTERED TIMELINE SPACING ─── */
+.history .timeline {
+  margin: 2rem 0;          /* less top/bottom space */
+}
+
+.history .timeline-item {
+  padding: 1rem 0;         /* smaller vertical padding */
+  margin-bottom: 2rem;     /* consistent gap between items */
+}
+
+/* alternate sides */
+.history .timeline-item:nth-child(odd) {
+  padding-left: 52%;       /* push content just past the spine */
+  text-align: left;
+}
+.history .timeline-item:nth-child(even) {
+  padding-right: 52%;
+  text-align: right;
+}
+
+/* constrain text width so it doesn’t stretch too far */
+.history .timeline-item h3,
+.history .timeline-item p {
+  display: inline-block;
+  max-width: 40ch;         /* about 40 characters wide */
+  margin: 0 auto;          /* center within its side */
+}
+
+/* dot (no change) */
+.history .timeline-item::after {
+  top: 1rem;               /* raised a bit for closer grouping */
+}
+
+/* collapse to single column on mobile */
+@media (max-width: 768px) {
+  .history .timeline-item,
+  .history .timeline-item:nth-child(odd),
+  .history .timeline-item:nth-child(even) {
+    padding: 1.5rem 1rem;  /* consistent padding all around */
+    text-align: left;
+  }
+}
+
+
+/* reveal on scroll */
+.history .timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* collapse to single column on mobile */
+@media (max-width: 768px) {
+  .history .timeline::before {
+    display: none;
+  }
+  .history .timeline-item,
+  .history .timeline-item:nth-child(odd),
+  .history .timeline-item:nth-child(even) {
+    padding: 2rem 1rem;
+    text-align: left;
+  }
+  .history .timeline-item p {
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+
+    /* MEMBER SPOTLIGHT */
+  /* ─── MEMBER SPOTLIGHT ─── */
+#spotlight .spotlight-grid {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+#spotlight .spotlight-image {
+  flex: 1 1 300px;
+  overflow: hidden;
+}
+#spotlight .spotlight-image img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+#spotlight .spotlight-content {
+  flex: 1 1 300px;
+}
+#spotlight .spotlight-content h2 {
+  font-family: 'Poppins', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2d5c34;
+}
+#spotlight .spotlight-content p.intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Ensure stacking nicely on small screens */
+@media (max-width: 768px) {
+  #spotlight .spotlight-grid {
+    flex-direction: column;
+  }
+  #spotlight .spotlight-content,
+  #spotlight .spotlight-image {
+    flex: 1 1 auto;
+  }
+}
+
+/* Spotlight row */
+.spotlight-row {
+  display: flex;
+  align-items: center;       /* vertical alignment */
+  gap: 2rem;                 /* space between image & text */
+  flex-wrap: wrap;           /* stack on mobile */
+}
+
+/* Image sizing */
+.spotlight-image {
+  flex: 1 1 300px;           /* grow/shrink, base 300px */
+}
+.spotlight-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Text block */
+.spotlight-content {
+  flex: 1 1 400px;           /* grow/shrink, base 400px */
+}
+.spotlight-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #2d5c34;
+  margin-bottom: 1rem;
+}
+.spotlight-content p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+
+    /* UPCOMING EVENTS */
+    #upcoming .cards {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:2rem; margin-top:2rem;
+    }
+    #upcoming .card {
+      background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.05); padding:1.5rem;
+    }
+    #upcoming .card h3 {
+      margin-bottom:.5rem; font-family:'Poppins',serif; color:#2d5c34;
+    }
+    #upcoming .card time {
+      display:block; font-size:.9rem; color:#c5a973; margin-bottom:1rem;
+    }
+    #upcoming .card p {
+      color:#555; font-size:.95rem;
+    }
+
+    /* FINAL CTA */
+    .cta-final {
+      background:#2d5c34; color:#fff; text-align:center; padding:3rem 0;
+    }
+    .cta-final h2 {
+      font-family:'Playfair Display',serif; font-size:2rem; margin-bottom:1rem;
+    }
+    .cta-final .btn {
+      background:#fff; color:#2d5c34; padding:.75rem 1.5rem; border-radius:4px; font-weight:600;
+      transition:background .3s;
+    }
+    .cta-final .btn:hover {
+      background:#f0f0f0;
+    }
+
+    /* FOOTER */
+    footer {
+      background:#f9f9f9; text-align:center; padding:2rem 0; font-size:.875rem;
+    }
+
+    /* FADE-IN */
+    .fade-in { opacity:0; transform:translateY(20px); transition:opacity .6s,transform .6s; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+    @media(max-width:768px){
+      .history .timeline { flex-direction:column; }
+      .history .timeline::before { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo-small.png" alt="TWN Logo" class="logo"/>
+        <span class="brand-text">TWN Baylor</span>
+      </a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+    <!-- ── HERO (only “Learn More” button) ── -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>The Women’s Network at Baylor University</h1>
+        <p>Empowering ambitious women through leadership, networking, and growth.</p>
+        <a href="about.html#about" class="btn">Learn More</a>
+
+      </div>
+    </section>
+
+  <main>
+    <!-- WHO WE ARE -->
+<section id="about" class="section fade-in">
+  <div class="container text-center">
+    <h2>Who We Are</h2>
+    <p class="about-copy">
+      The Women’s Network is the largest collegiate women’s networking organization in the United States.  
+      We connect current and recently-graduated women to each other and to seasoned female professionals  
+      across multiple industries. We’re revolutionizing networking—celebrating and redefining ambition along the way.  
+      In our five-year history, TWN has grown from a single campus to over 100 campuses and from 1,500 members  
+      to over 40,000 members.
+    </p>
+  </div>
+</section>
+
+<!-- ANIMATED QUOTE SECTION -->
+<section class="quote-animated">
+  <div class="container quote-wrapper">
+    <p class="quote-text">
+      “I’ve always believed that one woman’s success can only help another woman’s success.”
+    </p>
+    <p class="quote-author">— Gloria Vanderbilt</p>
+  </div>
+</section>
+
+
+<section class="history section fade-in">
+  <div class="container">
+    <h2>Our History</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <time>2017</time>
+        <h3>Founded at Syracuse University</h3>
+        <p>Our first chapter launched under Jamie Vinick’s vision to bring ambitious women together.</p>
+      </div>
+      <div class="timeline-item">
+        <time>2020</time>
+        <h3>Redefining Ambition Podcast</h3>
+        <p>We launched our flagship podcast to share stories of women breaking barriers across industries.</p>
+      </div>
+      <div class="timeline-item">
+        <time>2023</time>
+        <h3>120+ Campuses &amp; 50,000+ Members</h3>
+        <p>Rapid growth saw us expand nationwide, connecting tens of thousands of collegiate and recent-grad women.</p>
+      </div>
+      <div class="timeline-item">
+        <time>2024</time>
+        <h3>Baylor Chapter Launch</h3>
+        <p>The Women’s Network officially arrived at Baylor, kicking off our journey in Waco, TX.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- MEMBER SPOTLIGHT -->
+    <section id="spotlight" class="section">
+      <div class="container spotlight-row">
+        <!-- Image -->
+        <div class="spotlight-image">
+          <img src="assets/team/isabella.jpg" alt="Isabella Tole" />
+        </div>
+    
+        <!-- Text + Bio -->
+        <div class="spotlight-content">
+          <h2>Member Spotlight</h2>
+          <p>
+            Isabella Tole has been a driving force in The Women’s Network at Baylor, 
+            serving as Vice President for two years. She helped launch the chapter, led 
+            empowering initiatives like financial literacy workshops, and fostered a 
+            strong community of ambitious women. Her leadership and passion have left 
+            a lasting impact on the network.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- UPCOMING EVENTS -->
+    <section id="upcoming" class="section fade-in">
+      <h2>Upcoming Events</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Focus & Flourish: Your Finals Study Haven</h3>
+          <time>Thursday, May 8, 2025</time>
+          <p>A space to study for finals with snacks, coffee, and study materials available.</p>
+        </div>
+        <div class="card">
+          <h3>Late Night</h3>
+          <time>Friday, August 30, 2025</time>
+          <p>Find our booth to learn more about how to succeed in our organization.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-final fade-in">
+      <h2>Ready to join our community?</h2>
+      <a href="join.html" class="btn">Become a Member Today</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 The Women’s Network at Baylor University • <a href="https://instagram.com/thewomensnetwork_baylor" target="_blank">Instagram</a></p>
+  </footer>
+
+  <!-- FADE-IN SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelectorAll('.fade-in').forEach(el=>{
+        const obs = new IntersectionObserver(entries=>{
+          if(entries[0].isIntersecting){
+            el.classList.add('visible');
+            obs.unobserve(el);
+          }
+        },{threshold:0.2});
+        obs.observe(el);
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const items = document.querySelectorAll('.timeline-item');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      items.forEach(i => obs.observe(i));
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.fade-in, .timeline-item').forEach(el => {
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        el.classList.add('visible');
+        obs.unobserve(el);
+      }
+    }, { threshold: 0.2 });
+    obs.observe(el);
+  });
+});
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.fade-in, .timeline-item').forEach(el => {
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        el.classList.add('visible');
+        obs.unobserve(el);
+      }
+    }, { threshold: 0.2 });
+    obs.observe(el);
+  });
+});
+
+
+  </script>
+  
+</body>
+</html>
